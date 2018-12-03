@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Locale;
 
 public class SimplePrinter {
@@ -36,8 +38,15 @@ public class SimplePrinter {
 		
 		printer.printf(Locale.US, "%.3f %n", ein) ;//7.Zeile 3 Nachkommastellen und USA Format
 		
+		printer.printf("%% %n", "");//8.Zeile Prozentzeichen
 		
+		LocalDate heute = LocalDate.now();
+		printer.printf("%tA %te %tB %tY %n", heute,heute,heute,heute);//9.Zeile Wochentag,Tag ohne führende 0, Monatsname, Jahr
 		
+		printer.printf(Locale.ITALY,"%tA %te %tB %tY %n", heute,heute,heute,heute);//10. Zeile 9 auf italienisch
+		
+		LocalTime jetzt = LocalTime.now();
+		printer.printf("%tI:%tM %tp %n", jetzt,jetzt, jetzt) ;//11.Zeile Uhrzeit in Englisch
 		
 		
 	}
